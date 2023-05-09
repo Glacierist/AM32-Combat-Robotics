@@ -345,7 +345,7 @@ uint16_t reverse_speed_threshold = 1500;
 uint8_t desync_happened = 0;
 char maximum_throttle_change_ramp = 1;
   
-char crawler_mode = 0;  // no longer used //
+char crawler_mode = 1;  // no longer used //
 uint16_t velocity_count = 0;
 uint16_t velocity_count_threshold = 75;
 
