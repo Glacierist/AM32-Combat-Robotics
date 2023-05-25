@@ -1529,8 +1529,7 @@ loadEEpromSettings();
 		bi_direction = 1;
 		use_sin_start = 0;
 		low_rpm_throttle_limit = 1;
-		VARIABLE_
-			= 0;
+		VARIABLE_PWM = 0;
 		//stall_protection = 1;
 		comp_pwm = 0;
       	stuck_rotor_protection = 0;
