@@ -247,9 +247,9 @@ uint16_t target_e_com_time_low;
 char eeprom_layout_version = 2;
 char dir_reversed = 0;
 char comp_pwm = 1;
-char VARIABLE_PWM = 1;
-char bi_direction = 0;
-char stuck_rotor_protection = 1;	// Turn off for Crawlers
+char VARIABLE_PWM = 0;
+char bi_direction = 1;
+char stuck_rotor_protection = 0;	// Turn off for Crawlers
 char brake_on_stop = 0;
 char stall_protection = 0;
 char use_sin_start = 0;
@@ -257,7 +257,7 @@ char TLM_ON_INTERVAL = 0;
 uint8_t telemetry_interval_ms = 30;
 uint8_t TEMPERATURE_LIMIT = 255;  // degrees 255 to disable
 char advance_level = 2;			// 7.5 degree increments 0 , 7.5, 15, 22.5)
-uint16_t motor_kv = 2000;
+uint16_t motor_kv = 780;
 char motor_poles = 14;
 uint16_t CURRENT_LIMIT = 202;
 uint8_t sine_mode_power = 5;
@@ -276,7 +276,7 @@ uint16_t servo_neutral = 1500;
 uint8_t servo_dead_band = 100;
 
 //========================= Battery Cuttoff Settings ========================
-char LOW_VOLTAGE_CUTOFF = 0;		// Turn Low Voltage CUTOFF on or off
+char LOW_VOLTAGE_CUTOFF = 1;		// Turn Low Voltage CUTOFF on or off
 uint16_t low_cell_volt_cutoff = 330;	// 3.3volts per cell
 
 //=========================== END EEPROM Defaults ===========================
@@ -349,7 +349,7 @@ char crawler_mode = 0;  // no longer used //
 uint16_t velocity_count = 0;
 uint16_t velocity_count_threshold = 75;
 
-char low_rpm_throttle_limit = 1;
+char low_rpm_throttle_limit = 0;
 
 uint16_t low_voltage_count = 0;
 uint16_t telem_ms_count;
@@ -776,9 +776,9 @@ void loadEEpromSettings(){
 	   high_rpm_level = motor_kv / 17 / (32/motor_poles);
 	   }
 	   reverse_speed_threshold =  map(motor_kv, 300, 3000, 2500 , 1250);
-	if(!comp_pwm){
-		bi_direction = 0;
-	}
+// 	if(!comp_pwm){
+// 		bi_direction = 0;
+// 	}
 
 
 
@@ -1529,7 +1529,8 @@ loadEEpromSettings();
 		bi_direction = 1;
 		use_sin_start = 0;
 		low_rpm_throttle_limit = 1;
-		VARIABLE_PWM = 0;
+		VARIABLE_
+			= 0;
 		//stall_protection = 1;
 		comp_pwm = 0;
       	stuck_rotor_protection = 0;
