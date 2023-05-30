@@ -110,15 +110,15 @@ void playStartupTune(){
 	setCaptureCompare();
 	comStep(3);       // activate a pwm channel
 	TIM1->PSC = 55;        // frequency of beep
-    delayMillis(200);         // duration of beep
+    delayMillis(100);         // duration of beep
 
     comStep(5);
     TIM1->PSC = 40;            // next beep is higher frequency
-	delayMillis(200);
+	delayMillis(100);
 
 	comStep(6);
 	TIM1->PSC = 25;         // higher again..
-	delayMillis(200);
+	delayMillis(100);
 
 
 	allOff();                // turn all channels low again
