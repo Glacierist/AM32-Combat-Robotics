@@ -794,11 +794,11 @@ void saveEEpromSettings(){
    }else{
 	   eepromBuffer[17] = 0x00;
    }
-   if(bi_direction == 1){
+//    if(bi_direction == 1){
 	   eepromBuffer[18] = 0x01;
-      }else{
-    	  eepromBuffer[18] = 0x00;
-      }
+//       }else{
+//     	  eepromBuffer[18] = 0x00;
+//       }
    if(use_sin_start == 1){
 	   eepromBuffer[19] = 0x01;
       }else{
