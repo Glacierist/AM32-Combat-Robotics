@@ -248,6 +248,7 @@ char eeprom_layout_version = 2;
 char dir_reversed = 0;
 char comp_pwm = 1;
 char VARIABLE_PWM = 0;
+char VARIABLE_MOTOR_TIMING = 1;
 char bi_direction = 1;
 char stuck_rotor_protection = 0;	// Turn off for Crawlers
 char brake_on_stop = 0;
@@ -256,7 +257,8 @@ char use_sin_start = 0;
 char TLM_ON_INTERVAL = 0;
 uint8_t telemetry_interval_ms = 30;
 uint8_t TEMPERATURE_LIMIT = 255;  // degrees 255 to disable
-char advance_level = 2;			// 7.5 degree increments 0 , 7.5, 15, 22.5)
+uint8_t advance_level = 2;			// 7.5 degree increments 0 , 7.5, 15, 22.5)
+uint8_t adjusted_motor_timing = 0;
 uint16_t motor_kv = 780;
 char motor_poles = 14;
 uint16_t CURRENT_LIMIT = 202;
@@ -1236,12 +1238,19 @@ if(!prop_brake_active){
 				tim1_arr = map(commutation_interval, 96, 200, TIMER1_MAX_ARR/2, TIMER1_MAX_ARR);
 			}
 			adjusted_duty_cycle = ((duty_cycle * tim1_arr)/TIMER1_MAX_ARR)+1;
+			
+			if(VARIABLE_MOTOR_TIMING){
+				adjusted_motor_timing = map(commutation_interval, 96, 200, 0, 3);
+			}
+			advance_level = adjusted_motor_timing;
+			
 		}else{
 				if(prop_brake_active){
 					adjusted_duty_cycle = TIMER1_MAX_ARR - ((duty_cycle * tim1_arr)/TIMER1_MAX_ARR)+1;
 				}else{
 				adjusted_duty_cycle = DEAD_TIME * running;
 				}
+			advance_level = 0;
 	    }
 		last_duty_cycle = duty_cycle;
 	TIM1->ARR = tim1_arr;
