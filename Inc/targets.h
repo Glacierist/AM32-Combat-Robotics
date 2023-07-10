@@ -1,6 +1,7 @@
 
 
 #ifndef USE_MAKE
+#define MULTISTAR21A_F051
 //#define FD6288_F051
 //#define IFLIGHT_F051
 //#define MP6531_F051
@@ -14,7 +15,7 @@
 //#define WRAITH32_F051
 //#define AIKON20X20_F051
 //#define AIKONSINGLE_F051
-#define FLYCOLOR_F051
+//#define FLYCOLOR_F051
 //#define AM32REF_F051
 //#define BLPWR_F051
 //#define HVFLYCOLOR_F051
@@ -35,6 +36,14 @@
 
 
 /****************************      F051 Targets ************************************/
+#ifdef MULTISTAR21A_F051
+#define FILE_NAME				"MULTISTAR21A_F051"
+#define FIRMWARE_NAME           "Multistar 21A  "
+#define DEAD_TIME               45
+#define HARDWARE_GROUP_F0_H
+#define USE_SERIAL_TELEMETRY
+#endif
+
 #ifdef FD6288_F051
 #define FILE_NAME				"FD6288_F051"
 #define FIRMWARE_NAME           "FD6288_PA2  "
@@ -431,7 +440,7 @@
 #endif
 
 /************************************ F051 Hardware Groups ****************************/
-
+	
 #ifdef HARDWARE_GROUP_F0_A
 
 #define MCU_F051
