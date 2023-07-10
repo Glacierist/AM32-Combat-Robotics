@@ -448,10 +448,10 @@
 #define INPUT_PIN               LL_GPIO_PIN_2
 #define INPUT_PIN_PORT          GPIOA
 #define IC_TIMER_CHANNEL        LL_TIM_CHANNEL_CH1
-#define IC_TIMER_REGISTER       TIM3
-#define IC_TIMER_POINTER        htim3
-#define INPUT_DMA_CHANNEL       LL_DMA_CHANNEL_4
-#define DMA_HANDLE_TYPE_DEF     hdma_tim3_ch1
+#define IC_TIMER_REGISTER       TIM15
+#define IC_TIMER_POINTER        htim15
+#define INPUT_DMA_CHANNEL       LL_DMA_CHANNEL_5
+#define DMA_HANDLE_TYPE_DEF     hdma_tim15_ch1
 #define IC_DMA_IRQ_NAME         DMA1_Channel4_5_IRQn
 
 #define PHASE_A_GPIO_LOW        LL_GPIO_PIN_1
