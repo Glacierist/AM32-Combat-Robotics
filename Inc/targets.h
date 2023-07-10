@@ -38,7 +38,7 @@
 /****************************      F051 Targets ************************************/
 #ifdef MULTISTAR21A_F051
 #define FILE_NAME				"MULTISTAR21A_F051"
-#define FIRMWARE_NAME           "Multistar 21A  "
+#define FIRMWARE_NAME           "Multistar21A"
 #define DEAD_TIME               45
 #define HARDWARE_GROUP_GL_1
 #define USE_SERIAL_TELEMETRY
@@ -473,6 +473,8 @@
 #define PHASE_A_COMP COMP_PA5
 #define PHASE_B_COMP COMP_PA4
 #define PHASE_C_COMP COMP_PA0
+
+#endif
 
 	
 #ifdef HARDWARE_GROUP_F0_A
