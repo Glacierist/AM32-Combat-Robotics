@@ -444,7 +444,7 @@
 #ifdef HARDWARE_GROUP_GL_1
 
 #define MCU_F051
-#define USE_TIMER_3_CHANNEL_1
+#define USE_TIMER_15_CHANNEL_1
 #define INPUT_PIN               LL_GPIO_PIN_2
 #define INPUT_PIN_PORT          GPIOA
 #define IC_TIMER_CHANNEL        LL_TIM_CHANNEL_CH1
