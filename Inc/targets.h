@@ -1,6 +1,7 @@
 
 
 #ifndef USE_MAKE
+#define MULTISTAR21A_F051
 //#define FD6288_F051
 //#define IFLIGHT_F051
 //#define MP6531_F051
@@ -16,7 +17,7 @@
 //#define AIKON20X20_F051
 //#define AIKONSINGLE_F051
 //#define FLYCOLOR_F051
-#define AM32REF_F051
+//#define AM32REF_F051
 //#define BLPWR_F051
 //#define HVFLYCOLOR_F051
 //#define FLASHHOBBY_F051
@@ -51,6 +52,14 @@
 
 
 /****************************      F051 Targets ************************************/
+#ifdef MULTISTAR21A_F051
+#define FILE_NAME				"MULTISTAR21A_F051"
+#define FIRMWARE_NAME           "Multistar21A"
+#define DEAD_TIME               45
+#define HARDWARE_GROUP_GL_1
+#define USE_SERIAL_TELEMETRY
+#endif
+
 #ifdef FD6288_F051
 #define FILE_NAME				"FD6288_F051"
 #define FIRMWARE_NAME           "FD6288_PA2  "
@@ -511,6 +520,43 @@
 #endif
 
 /************************************ F051 Hardware Groups ****************************/
+
+
+#ifdef HARDWARE_GROUP_GL_1
+
+#define MCU_F051
+#define USE_TIMER_15_CHANNEL_1
+#define INPUT_PIN               LL_GPIO_PIN_2
+#define INPUT_PIN_PORT          GPIOA
+#define IC_TIMER_CHANNEL        LL_TIM_CHANNEL_CH1
+#define IC_TIMER_REGISTER       TIM15
+#define IC_TIMER_POINTER        htim15
+#define INPUT_DMA_CHANNEL       LL_DMA_CHANNEL_5
+#define DMA_HANDLE_TYPE_DEF     hdma_tim15_ch1
+#define IC_DMA_IRQ_NAME         DMA1_Channel4_5_IRQn
+
+#define PHASE_A_GPIO_LOW        LL_GPIO_PIN_1
+#define PHASE_A_GPIO_PORT_LOW   GPIOB
+#define PHASE_A_GPIO_HIGH       LL_GPIO_PIN_10
+#define PHASE_A_GPIO_PORT_HIGH  GPIOA
+
+#define PHASE_B_GPIO_LOW        LL_GPIO_PIN_0
+#define PHASE_B_GPIO_PORT_LOW   GPIOB
+#define PHASE_B_GPIO_HIGH       LL_GPIO_PIN_9
+#define PHASE_B_GPIO_PORT_HIGH  GPIOA
+
+#define PHASE_C_GPIO_LOW        LL_GPIO_PIN_7
+#define PHASE_C_GPIO_PORT_LOW   GPIOA
+#define PHASE_C_GPIO_HIGH       LL_GPIO_PIN_8
+#define PHASE_C_GPIO_PORT_HIGH  GPIOA
+
+
+#define PHASE_A_COMP COMP_PA5
+#define PHASE_B_COMP COMP_PA4
+#define PHASE_C_COMP COMP_PA0
+
+#endif
+
 
 #ifdef HARDWARE_GROUP_F0_A
 
